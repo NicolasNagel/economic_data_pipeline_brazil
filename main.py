@@ -5,6 +5,7 @@ for item in data:
     url = item.get('URL')
     schema = item.get('schema')
     table = item.get('table')
+    unique_keys = item.get('unique_keys')
 
     if not url or not schema or not table:
         print(f"Pular item: {item}")
@@ -12,4 +13,4 @@ for item in data:
 
     data = get_data(url, schema)
     df = transform_data(data)
-    save_into_db(df, table)
+    save_into_db(df, table, unique_keys)
